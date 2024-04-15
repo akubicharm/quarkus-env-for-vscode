@@ -26,5 +26,6 @@ Quarkus Builder Imageの利用
 
 
 # 参考にしたコンテンツ
+* [Building a Native Executable](https://quarkus.io/guides/building-native-image)
 * [mandrel 23.1.2.0-Final, JDK21](https://github.com/graalvm/mandrel/releases/tag/mandrel-23.1.2.0-Final)
 * [How to use Podman inside of a container](https://www.redhat.com/sysadmin/podman-inside-container)
