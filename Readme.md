@@ -1,5 +1,8 @@
 # Quarkusの開発環境のためのVSCodeのDevContainer設定
 
+[VSCodeのDevContainer](https://code.visualstudio.com/docs/devcontainers/containers)でquarkusアプリのビルドと実行をするための設定です。
+
+
 ```
 ├─ .devcontainer/
 │  ├─　devcontainer.json
