@@ -28,15 +28,6 @@ RUN mkdir -p /var/lib/shared/overlay-images /var/lib/shared/overlay-layers /var/
 # JAVA Environment
 RUN dnf -y install maven
 
-# RUN dnf --setopt=install_weak_deps=0 --setopt=tsflags=nodocs install -y java-21-openjdk-devel \
-#     && dnf clean all \
-#     && rpm -q java-21-openjdk-devel
-# ENV \
-#     JAVA_HOME="/usr/lib/jvm/jre" \
-#     JAVA_VENDOR="openjdk" \
-#     JAVA_VERSION="21"
-# RUN alternatives --set java java-21-openjdk.aarch64; alternatives --set javac java-21-openjdk.aarch64
-
 # Mandrel(GraalVM) Environment
 RUN dnf -y install glibc-devel zlib-devel gcc freetype-devel libstdc++-static
 RUN curl -OL https://github.com/graalvm/mandrel/releases/download/mandrel-23.1.2.0-Final/mandrel-java21-linux-aarch64-23.1.2.0-Final.tar.gz; tar xvf mandrel-java21-linux-aarch64-23.1.2.0-Final.tar.gz; 
@@ -45,3 +36,7 @@ ENV GRAALVM_HOME="${JAVA_HOME}"
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 ENV _CONTAINERS_USERNS_CONFIGURED=""
+
+# Quarkus Environment
+RUN curl -Ls https://sh.jbang.dev | bash -s - trust add https://repo1.maven.org/maven2/io/quarkus/quarkus-cli/
+RUN curl -Ls https://sh.jbang.dev | bash -s - app install --fresh --force quarkus@quarkusio
